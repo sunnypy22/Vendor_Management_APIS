@@ -1,0 +1,550 @@
+{
+	"info": {
+		"_postman_id": "77885b40-4fae-46f3-977c-c9fa7206bb3d",
+		"name": "Vendor Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16802651"
+	},
+	"item": [
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Auth Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/token/auth/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"token",
+								"auth",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vendor",
+			"item": [
+				{
+					"name": "List all vendors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/vendors/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vendors",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/vendors/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"vendors",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 19 Dec 2023 07:52:31 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "OPTIONS, POST, GET"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "448"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 5,\n        \"name\": \"Sunny Patel123\",\n        \"contact_details\": \"8347988031\",\n        \"address\": \"Surat, Gujarat\",\n        \"vendor_code\": \"Sunny12383\",\n        \"on_time_delivery_rate\": 0,\n        \"quality_rating_avg\": 0,\n        \"average_response_time\": 0,\n        \"fulfillment_rate\": 0\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Komal Patel123\",\n        \"contact_details\": \"8347988031\",\n        \"address\": \"Surat, Gujarat\",\n        \"vendor_code\": \"Komal123\",\n        \"on_time_delivery_rate\": 100,\n        \"quality_rating_avg\": 80,\n        \"average_response_time\": 0,\n        \"fulfillment_rate\": 100\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create a new vendor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Komal Patel123\",\n    \"contact_details\": \"8347988031\",\n    \"address\": \"Surat, Gujarat\",\n    \"vendor_code\": \"Komal123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/vendors/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vendors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Specific vendor's details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token ff626ff401438e1a7f1cddc1a9bc942e3d1f7bd2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/vendors/6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vendors",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a vendor's details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token ff626ff401438e1a7f1cddc1a9bc942e3d1f7bd2",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Komal 2\",\n    \"contact_details\": \"8347988031\",\n    \"address\": \"Surat, Gujarat\",\n    \"vendor_code\": \"Komal123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/vendors/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vendors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a vendor",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token ff626ff401438e1a7f1cddc1a9bc942e3d1f7bd2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/vendors/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vendors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Purchase Order",
+			"item": [
+				{
+					"name": "List all purchase orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token ff626ff401438e1a7f1cddc1a9bc942e3d1f7bd2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/purchase_orders/?vendor=6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_orders",
+								""
+							],
+							"query": [
+								{
+									"key": "vendor",
+									"value": "6",
+									"description": "Not Required Field"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a purchase order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token ff626ff401438e1a7f1cddc1a9bc942e3d1f7bd2",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"po_number\" : \"komalvendor2\",\n    \"vendor\" : 6,                           //  Vendor's ID\n    \"delivery_date\" : \"2023-12-14 13:20\",    //Date Formate : YY-MM-DD hh:mm\n    \"items\" : {                             // JSON FIELD\n        \"Plants\" :3,\n        \"Pots\" : 2\n    },\n    \"quantity\":5,\n    \"quality_rating\" : 50  // Give rating out of 100 , Null = True, Comment this if not required from your end\n    //\"acknowledgment_date\" : \"\"  // Null = True , Comment this if not required from your end\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/purchase_orders/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_orders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specific purchase order",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token ff626ff401438e1a7f1cddc1a9bc942e3d1f7bd2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/purchase_orders/6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_orders",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a purchase order",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token ff626ff401438e1a7f1cddc1a9bc942e3d1f7bd2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/purchase_orders/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a purchase order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token ff626ff401438e1a7f1cddc1a9bc942e3d1f7bd2",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"po_number\" : \"komalupdate4\",\n    \"vendor\" : 6,                           //  Vendor's ID\n    \"delivery_date\" : \"2023-12-18 13:20\",    //Date Formate : YY-MM-DD hh:mm\n    \"items\" : {                             // JSON FIELD\n        \"Plants\" :3,\n        \"Pots\" : 2\n    },\n    \"quantity\":5,\n    \"quality_rating\" : 80  // Give rating out of 100 , Null = True, Comment this if not required from your end\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/purchase_orders/6/?status=Completed",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_orders",
+								"6",
+								""
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "Completed",
+									"description": "Pending, Completed, Canceled"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Acknowledgment Date",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token ff626ff401438e1a7f1cddc1a9bc942e3d1f7bd2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/purchase_orders/2/acknowledge/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"purchase_orders",
+								"2",
+								"acknowledge",
+								""
+							],
+							"query": [
+								{
+									"key": "acknowledgment_date",
+									"value": "2023-12-30 13:20",
+									"description": "Date Formate : YY-MM-DD hh:mm",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vendor Performance Evaluation",
+			"item": [
+				{
+					"name": "Vendor's Performance Metrics",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token ff626ff401438e1a7f1cddc1a9bc942e3d1f7bd2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/vendors/4/performance",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"vendors",
+								"4",
+								"performance"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
