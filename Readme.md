@@ -1,7 +1,7 @@
 # Project Setup
 
 1. Clone the Repository:
->> git clone https://github.com/your-username/your-django-project.git
+>> git clone https://github.com/sunnypy22/Vendor_Management_APIS.git
 
 2. Install virtualenv:
 >> pip install virtualenv
